@@ -1,0 +1,27 @@
+//- 안에 집어넣으려면 들여쓰기 해야함
+//- js를 통해 데이터 집어넣으려면, 태그옆에 = 바로 붙이고, 이름정해주면됨.
+html
+    head
+        title= title
+    body
+        h1 Hello Pug
+        ul
+            -for(let i = 0 ; i < 5 ; i++)
+                li coding
+        div= time
+
+
+//- 쿼리스트링 소개
+//- 사용자의 조작에 따라서 적당히 다른 결과를 보여주는앱이
+//- 기능성 좋은 애플리케이션!
+
+//- 지금까지 내용에서
+//- a.com/topic   a.com/login  a.com/home 이 세 내용은 path에 따라 다른결과 보여주지만,
+//- a.com/topic하나만 보면 얜 한 페이지만 보여주는 놈
+
+//- a.com/topic?id=1 id가 1에 해당되는 결과를 출력하게 됨.
+//- ?뒤에 오는 내용을 query string이라고 부름!
+//- 즉, 하나의 라우터에서 다양한 내용을 출력할 수 있다!
+
+
+//- app2.js 의 topic라우터 부분에서 이어서...
