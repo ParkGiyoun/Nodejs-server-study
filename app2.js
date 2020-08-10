@@ -8,6 +8,29 @@ app.use(express.static("public"));
 //이거 쓰면 정적 파일을 보낼 수 있음. 주소/.파일명.파일형식
 //public 디렉토리 안에 있어야 함.
 
+//bodyparser 대체 미들웨어 express.urlencoded
+app.use(express.urlencoded({ extended: false }));
+
+/**
+ * form 라우터
+ */
+app.get("/form", (req, res) => {
+  app.locals.pretty = true;
+  res.render("form");
+});
+app.get("/form_receiver", (req, res) => {
+  const title = req.query.title;
+  const description = req.query.description;
+  res.send(`${title} , ${description}`);
+});
+app.post("/form_receiver", (req, res) => {
+  //body라는 객체를 받기위해 예전에는 bodyparser써야 했는데, 이제 안써도 됨.
+  //express api참조 -> req.body 참고
+  const title = req.body.title;
+  const description = req.body.description;
+  res.send(`${title} , ${description}`);
+});
+
 /**
  * 시멘틱URL
  * semantic URL
@@ -35,7 +58,7 @@ app.get("/semantic/:id", (req, res) => {
 //이렇게 두개인 경우에도 처리할 수 있음.
 app.get("/semantic/:id/:mode", (req, res) => {
   res.send(req.params.id + "," + req.params.mode);
-});
+}); // GETvsPOST.txt에서 이어서....
 
 //queryString -> 요청부분인 req를 사용하게 될 것임.
 app.get("/topic", (req, res) => {

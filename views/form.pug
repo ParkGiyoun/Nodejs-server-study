@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body
+        form(action="/form_receiver" method="post")
+            p
+                input(type="text" name="title")
+            p
+                textarea(name="description", cols="30", rows="10")
+            p
+                input(type="submit")
+
+//-form 태그의 method 속성에 get이라는 값(기본값)을 넣으면
+    쿼리스트링 만든 뒤에 action에 해당하는 주소로 이동합니다.
+    만약, 이를 post로 지정한다면, 쿼리스트링은 만들지 않음.
+        데이터는 서버로 잘 전달된거임
+        URL방식으로 전달한 것이 아니라 눈에 보이지 않는 방식으로 한거임.
